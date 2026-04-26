@@ -1,26 +1,79 @@
-This repository contains a sample Node.js web application containerized with Docker, built and published via GitHub Actions, and deployed locally using Terraform with the Docker provider.
+This repository contains a simple Node.js web application that is:
 
-## Solution Overview
+- containerized with Docker,
+- linted with ESLint,
+- built and published to GitHub Container Registry (GHCR) using GitHub Actions,
+- Deployed locally with Terraform using the Docker provider.
 
-- **Base app:** simple Node.js "Hello World" web app
-- **Containerization:** Dockerfile
-- **CI/CD:** GitHub Actions
-  - linting
-  - Docker build
-  - image push to GitHub Container Registry (GHCR)
-- **Deployment:** Terraform + Docker provider (local deployment)
+The goal of this project is to demonstrate a simple but complete DevOps workflow for a containerized application.
 
-## Prerequisites
+---
 
-Install the following locally:
+# Table of Contents
 
-- Node.js 20+
-- Docker
-- Terraform 1.6+
-- Git
+- [Project Overview](#project-overview)
+- [Architecture](#architecture)
+- [Repository Structure](#repository-structure)
+- [Prerequisites](#prerequisites)
+- [Run the Application Locally Using npm](#run-the-application-locally-using-npm)
+- [Lint the Application](#lint-the-application)
+- [Build and Run the Docker Image Locally](#build-and-run-the-docker-image-locally)
+- [Push the Image to GitHub Container Registry (GHCR)](#push-the-image-to-github-container-registry-ghcr)
+- [GitHub Actions CI/CD Workflow](#github-actions-cicd-workflow)
+- [Deploy the Container Locally Using Terraform](#deploy-the-container-locally-using-terraform)
+- [Terraform Outputs](#terraform-outputs)
+- [Access the Website After Deployment](#access-the-website-after-deployment)
+- [Troubleshooting](#troubleshooting)
+- [Assumptions](#assumptions)
+- [Future Improvements](#future-improvements)
 
-## Local Run (without Docker)
+---
 
-```bash
-npm install
-npm start
+# Project Overview
+
+This project demonstrates the following DevOps tasks:
+
+1. Run the application locally using `npm`
+2. Add linting using ESLint
+3. Containerize the application with Docker
+4. Push the container image to GitHub Container Registry (GHCR)
+5. Automate lint/build/push using GitHub Actions
+6. Deploy the container with Terraform using the Docker provider
+
+---
+
+# Architecture
+
+The workflow is:
+
+1. Developer pushes code to GitHub
+2. GitHub Actions runs:
+   - checkout
+   - Node.js setup
+   - dependency installation
+   - lint
+   - Docker build
+   - Docker push to GHCR
+3. Terraform deploys the image using the Docker provider
+4. The application becomes accessible through the exposed local port
+
+---
+
+# Repository Structure
+
+```text
+.
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml
+├── terraform/
+│   ├── main.tf
+│   ├── variables.tf
+│   └── outputs.tf
+├── Dockerfile
+├── eslint.config.cjs
+├── index.js
+├── package.json
+├── package-lock.json
+└── README.md
+``
