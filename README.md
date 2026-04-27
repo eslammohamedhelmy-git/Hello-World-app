@@ -43,6 +43,8 @@ This project demonstrates the following DevOps tasks:
 
 ## Repository structure for this project:
 
+
+``text
 .
 ├── .github/
 │   └── workflows/
@@ -58,6 +60,7 @@ This project demonstrates the following DevOps tasks:
 ├── package.json
 ├── package-lock.json
 └── README.md
+``
 
 
 ## Prerequisites
