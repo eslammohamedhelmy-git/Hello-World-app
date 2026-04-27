@@ -43,21 +43,25 @@ This project demonstrates the following DevOps tasks:
 
 ## Repository Structure
 
-Repository structure for this project:
+## Repository structure for this project:
 
+```text
+.
 ├── .github/
 │   └── workflows/
 │       └── ci-cd.yml
 ├── terraform/
 │   ├── main.tf
 │   ├── variables.tf
-│   └── outputs.tf
+│   ├── outputs.tf
+│   └── terraform.tfvars.example
 ├── Dockerfile
 ├── eslint.config.cjs
 ├── index.js
 ├── package.json
 ├── package-lock.json
 └── README.md
+``
 
 ## Prerequisites
 
